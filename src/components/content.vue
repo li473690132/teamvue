@@ -1,12 +1,15 @@
 <template>
-
-	 <!-- Start of Page Container -->
-        <div class="page-container" style="width: 70%;margin: auto;">
+	<div class="hello">
+  	
+  		<search></search>
+  	
+	 	<!-- Start of Page Container -->
+        <div class="page-container" style="width: 60%;margin: auto;">
                 
                 <div class="row">
 
                         <!-- start of page content -->
-                        <div class="span10 page-content">
+                        <div class="span9 page-content">
 
                                 <ul class="breadcrumb">
                                         <li><a href="#">知识库主题</a><span class="divider">/</span></li>
@@ -325,7 +328,7 @@
                         </div>
                         <!-- end of page content -->
    
-                            </div>
+                    </div>
                
         </div>
         <!-- End of Page Container -->
@@ -334,14 +337,19 @@
 </template>
 
 <script>
-export default {
-  name: 'content',
-  data () {
-    return {
-      msg: 'Welcome'
-    }
-  }
-}
+	import search from '@/components/search'
+	
+	export default {
+	  name: 'content',
+	  data () {
+	    return {
+	      msg: 'Welcome'
+	    }
+	  },
+	  components:{
+	    search
+	 	}
+	}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

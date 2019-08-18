@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+  	
+  	<search></search>
+  	
     <!-- Start of Page Container -->
                 <div class="page-container">
                         <div class="container">
@@ -159,6 +162,7 @@
 
 <script>
 	import right from '@/components/right'
+	import search from '@/components/search'
 	
 	export default {
 	  name: 'home_articles',
@@ -168,7 +172,8 @@
 	    }
 	  },
 	  components:{
-	    right
+	    right,
+	    search
 	 	}
 	}
 </script>

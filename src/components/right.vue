@@ -1,6 +1,6 @@
 <template>
 
-				<!-- start of sidebar -->
+		<!-- start of sidebar -->
         <aside class="span4 page-sidebar">
 
                 <section class="widget">
@@ -8,8 +8,9 @@
                                 <h3 class="title">个人中心</h3>
                                 <ul class="articles">
                                  <li class="article-entry standard">
-                                        <h4><a href="single.html">写文章</a></h4>
-                                        
+                                        <h4>
+                                        	<router-link to="/write_article">写文章</router-link>
+                                        </h4>
                                 </li>
                                 <li class="article-entry standard">
                                         <h4><a href="single.html">提问题</a></h4>
@@ -141,11 +142,9 @@
                                </dl>
                         </ul>
                 </section>
-
         </aside>
         <!-- end of sidebar -->
-                               
-  </div>
+ 
 </template>
 
 <script>
