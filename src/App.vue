@@ -6,7 +6,7 @@
   	<Header v-show="path=='/write_article'"></Header>
   	<Header v-show="path=='/tolist'"></Header>
   	<Header v-show="path=='/content'"></Header>
-  	
+  	<Header v-show="path=='/hot_questions'"></Header>
   	
 		<router-view/>
 		
@@ -18,7 +18,7 @@
   	<Footer v-show="path=='/person'"></Footer>
   	<Footer v-show="path=='/myList'"></Footer>
   	<Footer v-show="path=='/myArticles'"></Footer>
-
+		<Footer v-show="path=='/hot_questions'"></Footer>
 		
   </div>
   
