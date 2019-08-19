@@ -8,6 +8,11 @@ import search from '@/components/search'
 import hot_questions from '@/components/hot_questions'
 import content from '@/components/content'
 import write_article from '@/components/write_article'
+import person from '@/components/person'
+import myArticles from '@/components/myArticles'
+import myList from '@/components/myList'
+import login from '@/components/login'
+import register from '@/components/register'
 
 Vue.use(Router)
 
@@ -44,6 +49,32 @@ export default new Router({
 	    path: '/write_article',
 	    name: 'write_article',
 	    component: write_article
+    },
+    {
+	    path: '/person',
+	    name: 'person',
+	    component: person
+    },
+    {
+	    path: '/myArticles',
+	    name: 'myArticles',
+	    component: myArticles
+    },
+    {
+	    path: '/myList',
+	    name: 'myList',
+	    component: myList
+    },
+    {
+	    path: '/login',
+	    name: 'login',
+	    component: login
+    },
+    {
+	    path: '/register',
+	    name: 'register',
+	    component: register
     }
+    
   ]
 })

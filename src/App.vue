@@ -1,186 +1,60 @@
 <template>
   <div id="app">
   	
-  	<!--头开始-->
-    <div class="header-wrapper">
-			<header>
-				<div class="container">
-		
-					<div class="logo-container">
-						<!-- Website Logo -->
-						<a href="index-2.html" title="Knowledge Base Theme">
-							<img src="../static/images/logo.png" alt="Knowledge Base Theme">
-						</a>
-		
-					</div>
-		
-					<!-- Start of Main Navigation -->
-					<nav class="main-nav">
-						<div class="menu-top-menu-container">
-							<ul id="menu-top-menu" class="clearfix">
-								<li class="current-menu-item">
-									<router-link to="/">首页</router-link>
-								</li>
-								<li>
-									<router-link to="/category_articles">发现</router-link>
-								</li>
-								<li>
-									<router-link to="/write_article">写文章</router-link>
-								</li>
-								<li>
-									<a href="home.html">我的</a>
-									<ul class="sub-menu">
-										<li>
-											<a href="blue-skin.html">我的主页</a>
-										</li>
-										<li>
-											<a href="green-skin.html">设置</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-										Sign In
-									</a>
-								</li>
-							</ul>
-						</div>
-		
-					</nav>
-					<!-- End of Main Navigation -->
-		
-				</div>
-			</header>
-		</div>
-		<!--头结束-->
-		
+  	<Header v-show="path=='/'"></Header>
+  	<Header v-show="path=='/category_articles'"></Header>
+  	<Header v-show="path=='/write_article'"></Header>
+  	<Header v-show="path=='/tolist'"></Header>
+  	<Header v-show="path=='/content'"></Header>
+  	
+  	
 		<router-view/>
 		
-		<!--脚开始-->
-	  <footer id="footer-wrapper">
-			<div id="footer" class="container">
-				<div class="row">
-		
-					<div class="span3">
-						<section class="widget">
-							<h3 class="title">How it works</h3>
-							<div class="textwidget">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-								<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
-							</div>
-						</section>
-					</div>
-		
-					<div class="span3">
-						<section class="widget">
-							<h3 class="title">Categories</h3>
-							<ul>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet,">Designing in WordPress</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet,">WordPress for Beginners</a>
-								</li>
-								<li>
-									<a href="#" title="Lorem ipsum dolor sit amet, ">WordPress Plugins</a>
-								</li>
-							</ul>
-						</section>
-					</div>
-		
-					<div class="span3">
-						<section class="widget">
-							<h3 class="title">Latest Tweets</h3>
-							<div id="twitter_update_list">
-								<ul>
-									<li>No Tweets loaded !</li>
-								</ul>
-							</div>
-						</section>
-					</div>
-		
-					<div class="span3">
-						<section class="widget">
-							<h3 class="title">Flickr Photos</h3>
-							<div class="flickr-photos" id="basicuse">
-							</div>
-						</section>
-					</div>
-		
-				</div>
-			</div>
-			<!-- end of #footer -->
-		
-			<!-- Footer Bottom -->
-			<div id="footer-bottom-wrapper">
-				<div id="footer-bottom" class="container">
-					<div class="row">
-						<div class="span6">
-							<p class="copyright">
-								Copyright © 2013. All Rights Reserved by KnowledgeBase.Collect from
-								<a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-							</p>
-						</div>
-						<div class="span6">
-							<!-- Social Navigation -->
-							<ul class="social-nav clearfix">
-								<li class="linkedin">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="stumble">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="google">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="deviantart">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="flickr">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="skype">
-									<a target="_blank" href="skype:#?call"></a>
-								</li>
-								<li class="rss">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="twitter">
-									<a target="_blank" href="#"></a>
-								</li>
-								<li class="facebook">
-									<a target="_blank" href="#"></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- End of Footer Bottom -->
-		
-		</footer>
-  	<!--脚结束-->
+		<Footer v-show="path=='/'"></Footer>
+  	<Footer v-show="path=='/category_articles'"></Footer>
+  	<Footer v-show="path=='/write_article'"></Footer>
+  	<Footer v-show="path=='/tolist'"></Footer>
+  	<Footer v-show="path=='/content'"></Footer>
+  	<Footer v-show="path=='/person'"></Footer>
+  	<Footer v-show="path=='/myList'"></Footer>
+  	<Footer v-show="path=='/myArticles'"></Footer>
+
 		
   </div>
   
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+	import Footer from '@/components/Footer'
+	import Header from '@/components/Header'
+	
+	export default {
+	  name: 'App',
+	  data(){
+            return{
+                path:''
+            }
+    },
+		
+		components:{
+		  	Header,
+		  	Footer
+		},
+		// 判断路由
+		/*created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。
+		  mounted:在模板渲染成html后调用，通常是初始化页面完成后，再对html的dom
+		     节点进行一些需要的操作。*/
+    mounted() {
+      this.path = this.$route.path;
+      /*console.log(this.$route.path)*/
+    },
+    //监测Vue实例上的数据变动
+    watch:{
+        $route(to,from){
+           this.path = to.path
+        }
+    }
+	}
 </script>
 
 <style>
