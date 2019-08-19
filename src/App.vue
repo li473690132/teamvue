@@ -1,4 +1,5 @@
 <template>
+	
   <div id="app">
   	
   	<Header v-show="path=='/'"></Header>
