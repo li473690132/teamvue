@@ -11,7 +11,6 @@
 						<a href="/" title="CodeBase">
 							<img src="static/images/logo.png" alt="CodeBase">
 						</a>
-						<span class="tag-line">Premium WordPress Theme</span>
 					</div>
 
 					<!-- Start of Main Navigation -->

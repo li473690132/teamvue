@@ -28,6 +28,9 @@
 									<router-link to="/write_article">写文章</router-link>
 								</li>
 								<li>
+									<router-link to="/tolist">文章列表</router-link>
+								</li>
+								<li>
 									<router-link to="/person">个人中心</router-link>
 								</li>
 								<li>

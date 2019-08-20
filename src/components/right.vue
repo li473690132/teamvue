@@ -55,90 +55,10 @@
                         		<dl class="toggle clearfix">
                             				<dt>
                                     	<li>
-                                    		<router-link to="/tolist">Java</router-link>
+                                    		<div @click="tocid">游戏</div>
                                     	</li>
                                     </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                	<router-link to="/tolist">Java基础</router-link>
-                                                	<router-link to="/tolist">Java基础</router-link>
-                                                	<router-link to="/tolist">Java基础</router-link>
-                                                	<router-link to="/tolist">Java基础</router-link>
-                                                	<router-link to="/tolist">Java基础</router-link>
-                                                </div>
-                                        </section>
-                                    </dd>
-                                    <dt>
-                                    	<li><a href="#" title="Lorem ipsum dolor sit amet,">Java</a> </li>
-                                    </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                </div>
-                                        </section>
-                                    </dd>
-                                    <dt>
-                                    	<li><a href="#" title="Lorem ipsum dolor sit amet,">Java</a> </li>
-                                    </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                </div>
-                                        </section>
-                                    </dd>
-                                    <dt>
-                                    	<li><a href="#" title="Lorem ipsum dolor sit amet,">Java</a> </li>
-                                    </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                </div>
-                                        </section>
-                                    </dd>
-                                    <dt>
-                                    	<li><a href="#" title="Lorem ipsum dolor sit amet,">Java</a> </li>
-                                    </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                </div>
-                                        </section>
-                                    </dd>
-                                    <dt>
-                                    	<li><a href="#" title="Lorem ipsum dolor sit amet,">Java</a> </li>
-                                    </dt>
-                                    <dd>
-                                    	<section class="widget">
-                                                <div class="tagcloud">
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                        <a href="#" class="btn btn-mini">java基础</a>
-                                                </div>
-                                        </section>
-                                    </dd>
+   
                                </dl>
                         </ul>
                 </section>
@@ -149,11 +69,23 @@
 
 <script>
 export default {
-  name: 'right',
-  data () {
-    return {
-      msg: 'Welcome'
+  name: 'App',
+   data(){
+    return{
+     newBlog:{
+     	cid:'1'
+     }
     }
+  },
+   methods:{
+  tocid:function(title){
+  		this.$router.push({
+  			path:"/tolist",
+  			query:{
+  			cid:this.newBlog.cid
+  			}
+  		})
+  	}
   }
 }
 </script>

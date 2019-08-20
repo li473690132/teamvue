@@ -7,8 +7,8 @@
 		            <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
 		
 		            <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
-		                    <input class="search-term required" type="text" id="s" name="s" placeholder="Type your search terms here" title="* Please enter a search term!" />
-		                    <input class="search-btn" type="submit" value="Search" />
+		                    <input class="search-term required" v-model="newBlog.title" type="text" placeholder="请输入您要查询的内容" />
+		                    <input class="search-btn"  @click="totitle(newBlog.title)" type="submit" value="Search" />
 		                    <div id="search-error-container"></div>
 		            </form>
 		    </div>
@@ -19,11 +19,23 @@
 
 <script>
 export default {
-  name: 'search',
-  data () {
-    return {
-      msg: 'Welcome'
+  name: 'App',
+   data(){
+    return{
+     newBlog:{
+     	title:''
+     }
     }
+  },
+   methods:{
+  totitle:function(title){
+  		this.$router.push({
+  			path:"/tolist",
+  			query:{
+  			titles:this.newBlog.title
+  			}
+  		})
+  	}
   }
 }
 </script>
