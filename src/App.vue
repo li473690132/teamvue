@@ -9,9 +9,12 @@
   	<Header v-show="path=='/content'"></Header>
   	<Header v-show="path=='/hot_questions'"></Header>
   	
+  	<search v-show="path=='/tolist'"></search>
+  	
+  	
 		<router-view/>
 		
-		<Footer v-show="path=='/'"></Footer>
+	<Footer v-show="path=='/'"></Footer>
   	<Footer v-show="path=='/category_articles'"></Footer>
   	<Footer v-show="path=='/write_article'"></Footer>
   	<Footer v-show="path=='/tolist'"></Footer>
@@ -19,7 +22,7 @@
   	<Footer v-show="path=='/person'"></Footer>
   	<Footer v-show="path=='/myList'"></Footer>
   	<Footer v-show="path=='/myArticles'"></Footer>
-		<Footer v-show="path=='/hot_questions'"></Footer>
+	<Footer v-show="path=='/hot_questions'"></Footer>
 		
   </div>
   
@@ -28,6 +31,7 @@
 <script>
 	import Footer from '@/components/Footer'
 	import Header from '@/components/Header'
+	import search from '@/components/search'
 	
 	export default {
 	  name: 'App',
@@ -39,7 +43,8 @@
 		
 		components:{
 		  	Header,
-		  	Footer
+		  	Footer,
+		  	search
 		},
 		// 判断路由
 		/*created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。

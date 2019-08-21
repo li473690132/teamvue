@@ -20,51 +20,46 @@
                                 </article>
 
 
-                                <form id="contact-form" class="row" action="http://inspirythemes.com/templates/knowledgebase-html/contact_form_handler.php" method="post">
-
+                                <form id="contact-form" class="row">
                                         
 										<div class="span2">
-                                                <label for="name"> Picture<span>*</span> </label>
+                                                <label for="file"> Picture<span>*</span> </label>
                                         </div>
                                         <div class="span6">
-                                                <input type="file" name="name" id="name" class="required input-xlarge" value="" title="* Please provide your name">
+                                                <input type="file" id="file" name="file"/>
                                         </div>
                                         <div class="span2">
                                                 <label for="name"> Name <span>*</span> </label>
                                         </div>
                                         <div class="span6">
-                                                <input type="text" name="name" id="name" class="required input-xlarge" value="" title="* Please provide your name">
+                                                <input type="text" v-model="user.username" name="name" id="name" class="required input-xlarge" value="">
                                         </div>
                                         
                                         <div class="span2">
                                                 <label for="password">Password <span>*</span></label>
                                         </div>
                                         <div class="span6">
-                                                <input type="text" name="password" id="password" class="email required input-xlarge" value="" title="* Please provide a valid email address">
+                                                <input type="text" v-model="user.password" name="password" id="password" class="required input-xlarge" value="">
                                         </div>
 
                                         <div class="span2">
                                                 <label for="email"> Email <span>*</span></label>
                                         </div>
                                         <div class="span6">
-                                                <input type="text" name="email" id="email" class="email required input-xlarge" value="" title="* Please provide a valid email address">
+                                                <input type="text" v-model="user.email" name="email" id="email" class="required input-xlarge" value="">
                                         </div>
 
                                    		<div class="span2">
                                                 <label for="motto">My Motto <span>*</span> </label>
                                         </div>
                                         <div class="span6">
-                                                <textarea name="motto" id="motto" class="required span6" rows="6" title="* Please enter your message"></textarea>
+                                                <textarea v-model="user.motto" name="motto" id="motto" class="required span6" rows="6"></textarea>
                                         </div>
 
                                         <div class="span6 offset2 bm30">
-                                                <input type="submit" name="submit" value="Submit" class="btn btn-inverse">
-                                                <img src="images/loading.gif" id="contact-loader" alt="Loading...">
+                                        		<button  @click="update" class="btn btn-inverse">Submit</button>
                                         </div>
-
-                                        <div class="span6 offset2 error-container"></div>
-                                        <div class="span8 offset2" id="message-sent"></div>
-
+                                        
                                 </form>
                         </div>
                         <!-- end of page content -->
@@ -86,11 +81,55 @@
 	import personRight from './personRight'
 	
 	export default {
-	  name: 'person',
-	  data () {
-	    return {
-	      msg: 'Welcome'
-	    }
+	  	name: 'person',
+	  	data () {
+		    return {
+		    	uid:'1',
+		      	user: {
+		      		id:'',
+					username: '',
+					password: '',
+					email: '',
+					motto:''
+				}
+	    	}
+	  	},
+	  	created:function(){
+			this.toUpdate();
+		},
+  		methods:{
+  			toUpdate:function(){
+  				this.$http.get("http://localhost:8081/selectEmpById",
+  					{params:{id:this.uid}}
+  				).then(
+					function(ret){
+						this.user=ret.body;
+					},
+					function(error){
+						alert("执行失败"+error);
+				})
+  			},
+	  	update:function(){
+	  		var formdata = new FormData();
+	  		formdata.append("file",document.querySelector("input[name=file]").files[0]);
+	  		formdata.append("username",document.getElementById("name").value);
+	  		formdata.append("password",document.getElementById("password").value);
+	  		formdata.append("email",document.getElementById("email").value);
+	  		formdata.append("motto",document.getElementById("motto").value);
+	  		var config = {
+	  			headers:{
+	  				"Content-type":"multipart/form-data"
+	  			}
+	  		};
+	  		this.$http.post("http://localhost:8081/updateUser",formdata,config).then(
+	  			function(result){
+	  				alert("success");
+	  				this.$router.go(0);
+	  			},function(error) {
+					console.log(error);
+				}
+	  		)
+	  	}
 	  },
 	  components:{
 	  	PersonalHeader,

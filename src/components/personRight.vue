@@ -6,7 +6,7 @@
             <section class="widget">
                     <div class="support-widget">
                             <h3 class="title">个人中心</h3>
-                            <img src=""  />
+                            <img src="http://localhost:8081/image/i2.jpg"  />
                             <p class="intro"> </p>
                     	
                     </div>

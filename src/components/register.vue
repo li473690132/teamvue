@@ -44,7 +44,7 @@
 			return {
 				msg: 'Welcome',
 				user: {
-					username: 'heheh',
+					username: '',
 					Password: '',
 					email: ''
 				},
@@ -85,11 +85,10 @@
 					}
 				}).then(
 					function(result) {
-						alert(result.data);
-						if(result.data) {
-							_this.mess = "用户名可用";
-						} else {
+						if(result.data=="ok") {
 							_this.mess = "用户名不可用";
+						} else {
+							_this.mess = "用户名可用";
 						}
 					},
 					function(error) {
